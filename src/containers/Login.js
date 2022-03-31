@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 
+//using usestate hooks to store what users enter in form
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

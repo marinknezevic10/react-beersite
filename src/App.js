@@ -61,7 +61,7 @@ class App extends React.Component {
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
-                            Name: {item.name}
+                            Name: {item.name} Description: {item.description}
                         </li>
                     ))}
                 </ul>

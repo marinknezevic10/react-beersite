@@ -9,8 +9,8 @@ import App from './App';
 //this page is responsible for what will be visible on the webpage!!!REMEMBER THIS
 ReactDOM.render(
   <React.StrictMode>
-    <App />
     <Login />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

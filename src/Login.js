@@ -10,52 +10,10 @@ import { Auth } from "aws-amplify";
 //then we are setting form controls to show the value of our two variables(email,pass)
 //validateform checks if our forms are empty
 
-class Apii extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      isLoaded: false,
-    }
-  }
-
-  componentDidMount() {
-
-      fetch('https://api.punkapi.com/v2/beers')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({
-            isLoaded: true,
-            items: json,
-        })
-      });
-  }
-
-  render(){
-
-    var { isLoaded, items } = this.state;
-
-    if(!isLoaded){
-      return <div>Loading...</div>;
-    }
-
-    else{
-
-    return (
-
-      <div className ="Apii">
-            Data has been loaded
-      </div>
-
-    );
-  }
-  
-}
-}
 
 
 export default function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -76,6 +34,9 @@ export default function Login() {
 }
 
   return (
+
+    
+
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">

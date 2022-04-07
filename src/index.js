@@ -4,10 +4,12 @@ import './index.css';
 import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 import './Login.css';
+import App from './App';
 
-
+//this page is responsible for what will be visible on the webpage!!!REMEMBER THIS
 ReactDOM.render(
   <React.StrictMode>
+    <App />
     <Login />
   </React.StrictMode>,
   document.getElementById('root')

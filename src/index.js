@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './containers/Login';
 import reportWebVitals from './reportWebVitals';
-
+import Beers from './components/Dashboard/Dashboard';
+import Preferences from './components/Preferences/Preferences';
 
 
 //this page is responsible for what will be visible on the webpage!!!REMEMBER THIS
 ReactDOM.render(
   <React.StrictMode>
     <Login />
+    <Beers />
+    <Preferences />
+   
    
   </React.StrictMode>,
   document.getElementById('root')

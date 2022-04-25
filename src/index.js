@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from './Login';
+import Login from './containers/Login';
 import reportWebVitals from './reportWebVitals';
-import './Login.css';
-import App from './App';
+
+
 
 //this page is responsible for what will be visible on the webpage!!!REMEMBER THIS
 ReactDOM.render(
   <React.StrictMode>
     <Login />
-    <App />
+   
   </React.StrictMode>,
   document.getElementById('root')
 );

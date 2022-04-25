@@ -1,79 +1,86 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 
-import Form from "react-bootstrap/Form";
+async function loginUser(credentials) {
 
-import Button from "react-bootstrap/Button";
+ return fetch('http://localhost:8080/login', {
 
+   method: 'POST',
 
+   headers: {
 
-export default function Login() {
+     'Content-Type': 'application/json'
 
-  const [email, setEmail] = useState("");
+   },
 
-  const [password, setPassword] = useState("");
+   body: JSON.stringify(credentials)
 
-  function validateForm() {
+ })
 
-    return email.length > 0 && password.length > 0;
+   .then(data => data.json())
 
-  }
+}
 
-  function handleSubmit(event) {
+export default function Login({ setToken }) {
 
-    event.preventDefault();
+  const [username, setUserName] = useState();
 
-  }
+  const [password, setPassword] = useState();
 
-  return (
+  return(
 
-    <div className="Login">
+    <div className="login-wrapper">
 
-      <Form onSubmit={handleSubmit}>
+      <h1>Please Log In</h1>
 
-        <Form.Group size="lg" controlId="email">
+      <form>
 
-          <Form.Label>Email</Form.Label>
+        <label>
 
-          <Form.Control
+          <p>Username</p>
 
-            autoFocus
+          <input type="text" onChange={e => setUserName(e.target.value)}/>
 
-            type="email"
+        </label>
 
-            value={email}
+        <label>
 
-            onChange={(e) => setEmail(e.target.value)}
+          <p>Password</p>
 
-          />
+          <input type="password" onChange={e => setPassword(e.target.value)}/>
 
-        </Form.Group>
+        </label>
 
-        <Form.Group size="lg" controlId="password">
+        <div>
 
-          <Form.Label>Password</Form.Label>
+          <button type="submit">Submit</button>
 
-          <Form.Control
+        </div>
 
-            type="password"
-
-            value={password}
-
-            onChange={(e) => setPassword(e.target.value)}
-
-          />
-
-        </Form.Group>
-
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-
-          Login
-
-        </Button>
-
-      </Form>
+      </form>
 
     </div>
 
-  );
+    )
 
 }
+
+Login.propTypes = {
+
+  setToken: PropTypes.func.isRequired
+
+}
+
+
+
+
+  
+
+
+ 
+  
+
+
+
+
+

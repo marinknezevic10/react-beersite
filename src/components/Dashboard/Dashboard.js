@@ -1,11 +1,76 @@
 import React from 'react';
 
-export default function Beers() {
+/**
+ * App
+ *
+ * Simple react js fetch example
+ */
 
-  return(
+class App extends React.Component {
 
-    <h2>Beers</h2>
+    /**
+     * constructor
+     *
+     * @object  @props  parent props
+     * @object  @state  component state
+     */
+    constructor(props) {
 
-  );
+        super(props);
+
+        this.state = {
+            items: [],
+            isLoaded: false
+        }
+
+    }
+
+    /**
+     * componentDidMount
+     *
+     * Fetch json array of objects from given url and update state.
+     */
+    componentDidMount() {
+
+        fetch('https://api.punkapi.com/v2/beers')
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    items: json,
+                    isLoaded: true, 
+                })
+            }).catch((err) => {
+                console.log(err);
+            });
+
+    }
+
+    /**
+     * render
+     *
+     * Render UI
+     */
+    render() {
+
+        const { isLoaded, items } = this.state;
+
+        if (!isLoaded)
+            return <div>Loading...</div>;
+
+        return (
+            <div className="App"><h2>Beers</h2>
+                <ul>
+                    {items.map(item => (
+                        <li key={item.id}>
+                            Name: {item.name}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+
+    }
 
 }
+
+export default App;

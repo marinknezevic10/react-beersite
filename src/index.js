@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './containers/Login';
 import reportWebVitals from './reportWebVitals';
-import Beers from './components/Dashboard/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
 
 
@@ -11,7 +11,7 @@ import Preferences from './components/Preferences/Preferences';
 ReactDOM.render(
   <React.StrictMode>
     <Login />
-    <Beers />
+    <Dashboard />
     <Preferences />
    
    
